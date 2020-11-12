@@ -2,13 +2,14 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-        <h2 class="display-5 font-weight-bold mb-3">
-          Pokemon
+        <h2 class="display-5 font-weight-bold my-2 text-decoration-underline">
+          PokeDex Vue
         </h2>
       </v-col>
     </v-row>
-    <PokemonSearch />
+    <PokemonSearch @searchResult="getSearchQuery"/>
     <PokemonList
+      :searchUrl="searchUrl"
       :imageUrl="imageUrl"
       :apiUrl="apiUrl"
       @getPokemonDetail="setPokemonDetail"
@@ -40,11 +41,11 @@ export default {
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/",
     apiUrl: "https://pokeapi.co/api/v2/pokemon/",
     showDetail: false,
+    searchUrl: '',
     pokemonUrl: "",
   }),
   methods: {
     setPokemonDetail(url) {
-      console.log("run");
       this.pokemonUrl = url;
       this.showDetail = true;
     },
@@ -52,6 +53,9 @@ export default {
       this.showDetail = false;
       this.pokemonUrl = "";
     },
+    getSearchQuery(value){
+      this.searchUrl = value;
+    }
   },
   beforeMount() {},
 };

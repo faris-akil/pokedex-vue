@@ -2,7 +2,7 @@
   <v-app>
    
     <!-- <Navbar /> -->
-    <v-main>
+    <v-main class="blue-grey lighten-5">
       <Pokemon />
     </v-main>
   </v-app>
