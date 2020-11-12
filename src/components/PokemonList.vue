@@ -28,11 +28,11 @@
             >
           </v-card>
         </v-col>
-        <div class="d-flex align-center justify-center mt-10" v-if="loading">
+        <v-col cols="12" class="text-center my-2" v-if="loading">
           <div>
             <v-progress-circular indeterminate color="red"></v-progress-circular>
           </div>
-        </div>
+        </v-col>
       </v-row>
       <v-row v-if="searchUrl !== ''"> 
         <v-col offset-md="2" md="8">
@@ -57,8 +57,8 @@
             >
           </v-card>
           </span>
-          <span v-else>
-            <h1>No pokemon found</h1>
+          <span v-if="notFound">
+            <v-alert border="right" colored-border type="error" elevation="2">No pokemon found</v-alert>
           </span>
         </v-col>
       </v-row>
