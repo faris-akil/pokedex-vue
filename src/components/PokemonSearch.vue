@@ -26,7 +26,7 @@ export default {
   watch: {
     searchQuery: function(newValue){
       if (newValue === ''){
-        this.$emit("searchResult", this.searchQuery);
+        this.$emit("searchResult", this.searchQuery.toLowerCase());
       }
     }
   },
