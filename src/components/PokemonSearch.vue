@@ -26,13 +26,15 @@ export default {
   watch: {
     searchQuery: function(newValue){
       if (newValue === ''){
-        this.$emit("searchResult", this.searchQuery.toLowerCase());
+        this.$emit("searchResult", this.searchQuery);
       }
     }
   },
   methods: {
     submitSearch() {
-      this.$emit("searchResult", this.searchQuery);
+      let result = this.searchQuery.toLowerCase();
+      console.log(result);
+      this.$emit("searchResult", result);
     },
   },
 };
